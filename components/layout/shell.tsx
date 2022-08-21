@@ -8,9 +8,9 @@ import {
   Navbar,
   useMantineTheme,
   Text,
-  ScrollArea,
 } from "@mantine/core"
 import { useState } from "react"
+import HeaderContent from "./headercontent"
 import UserInfo from "./userinfo"
 
 export interface ShellProps {
@@ -40,7 +40,9 @@ export default function Shell(props: ShellProps) {
           width={{ sm: 200, lg: 300 }}
         >
           <Navbar.Section mt="xs">
-            <p>header der navbar</p>
+            <div style={{ borderBottom: `1px solid ${theme.colors.gray[8]}` }}>
+              <p>header der navbar</p>
+            </div>
           </Navbar.Section>
 
           <Navbar.Section grow mx="-xs" px="xs">
@@ -48,7 +50,9 @@ export default function Shell(props: ShellProps) {
           </Navbar.Section>
 
           <Navbar.Section>
-            <UserInfo></UserInfo>
+            <div style={{ borderTop: `1px solid ${theme.colors.gray[8]}` }}>
+              <UserInfo></UserInfo>
+            </div>
           </Navbar.Section>
         </Navbar>
       }
@@ -67,7 +71,12 @@ export default function Shell(props: ShellProps) {
       header={
         <Header height={70} p="md">
           <div
-            style={{ display: "flex", alignItems: "center", height: "100%" }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "100%",
+            }}
           >
             <MediaQuery largerThan="sm" styles={{ display: "none" }}>
               <Burger
@@ -79,7 +88,7 @@ export default function Shell(props: ShellProps) {
               />
             </MediaQuery>
 
-            <Text>Application header</Text>
+            <HeaderContent />
           </div>
         </Header>
       }
