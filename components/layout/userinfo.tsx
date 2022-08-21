@@ -1,6 +1,8 @@
 import React from "react"
 import { useUser } from "@auth0/nextjs-auth0"
 import Image from "next/image"
+import { Button, Text } from "@mantine/core"
+import Link from "next/link"
 
 export default function UserInfo() {
   const { user, error, isLoading } = useUser()
@@ -10,27 +12,55 @@ export default function UserInfo() {
 
   console.log(user?.sub)
   return (
-    user && (
-      <div>
-        <div style={{ paddingTop: "8px" }}>
-          <Image
-            src={user.picture || ""}
-            alt={user.name || "Profilbild"}
-            width={32}
-            height={32}
-          />
-          <h2
+    <div
+      style={{
+        paddingTop: "8px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      {user ? (
+        <div>
+          <div>
+            <Image
+              src={user.picture || ""}
+              alt={user.name || "Profilbild"}
+              width={32}
+              height={32}
+            />
+            <h2
+              style={{
+                display: "inline",
+                verticalAlign: "top",
+                paddingLeft: "8px",
+              }}
+            >
+              {user.name}
+            </h2>
+          </div>
+          <p>{user.email}</p>
+
+          <div
             style={{
-              display: "inline",
-              verticalAlign: "top",
-              paddingLeft: "8px",
+              paddingTop: "8px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
-            {user.name}
-          </h2>
+            <Link href="/api/auth/logout">
+              <Button>Logout</Button>
+            </Link>
+          </div>
         </div>
-        <p>{user.email}</p>
-      </div>
-    )
+      ) : (
+        <>
+          <Link href="/api/auth/login">
+            <Button>login</Button>
+          </Link>
+        </>
+      )}
+    </div>
   )
 }
