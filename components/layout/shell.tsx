@@ -1,5 +1,6 @@
-import { AppShell, Aside, Burger, Footer, Header, MediaQuery, Navbar, useMantineTheme, Text } from "@mantine/core"
+import { AppShell, Aside, Burger, Footer, Header, MediaQuery, Navbar, useMantineTheme, Text, ScrollArea } from "@mantine/core"
 import { useState } from "react";
+import UserInfo from "./userinfo";
 
 export interface ShellProps {
     children: JSX.Element
@@ -19,7 +20,17 @@ export default function Shell(props: ShellProps) {
         asideOffsetBreakpoint="sm"
         navbar={
           <Navbar p="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 300 }}>
-            <Text>Application navbar</Text>
+            <Navbar.Section mt="xs">
+              <p>header der navbar</p>
+            </Navbar.Section>
+
+            <Navbar.Section grow mx="-xs" px="xs">
+              <p>Hier steht scrollbarer Text</p>
+            </Navbar.Section>
+
+            <Navbar.Section>
+              <UserInfo></UserInfo>
+            </Navbar.Section>
           </Navbar>
         }
         aside={
