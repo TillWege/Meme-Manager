@@ -8,9 +8,12 @@ import {
   Navbar,
   useMantineTheme,
   Text,
+  ThemeIcon,
 } from "@mantine/core"
+import { Icon2fa, IconHome, IconList, IconPhoto, IconUser } from "@tabler/icons"
 import { useState } from "react"
 import HeaderContent from "./headercontent"
+import MainMenuLink from "./mainmenulink"
 import UserInfo from "./userinfo"
 
 export interface ShellProps {
@@ -46,7 +49,18 @@ export default function Shell(props: ShellProps) {
           </Navbar.Section>
 
           <Navbar.Section grow mx="-xs" px="xs">
-            <p>Hier steht scrollbarer Text</p>
+            <MainMenuLink LinkCaption={"Home"}>
+              <IconHome size={20} />
+            </MainMenuLink>
+            <MainMenuLink LinkCaption={"Memes"}>
+              <IconPhoto size={20} />
+            </MainMenuLink>
+            <MainMenuLink LinkCaption={"Lists"}>
+              <IconList size={20} />
+            </MainMenuLink>
+            <MainMenuLink LinkCaption={"Profile"}>
+              <IconUser size={20} />
+            </MainMenuLink>
           </Navbar.Section>
 
           <Navbar.Section>
