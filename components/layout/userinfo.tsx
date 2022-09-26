@@ -39,8 +39,6 @@ export default function UserInfo() {
               {user.name}
             </h2>
           </div>
-          <p>{user.email}</p>
-
           <div
             style={{
               paddingTop: "8px",
@@ -57,7 +55,7 @@ export default function UserInfo() {
       ) : (
         <>
           <Link href="/api/auth/login">
-            <Button>login</Button>
+            <Button>Login</Button>
           </Link>
         </>
       )}

@@ -1,34 +1,10 @@
-import {
-  ThemeIcon,
-  Text,
-  Center,
-  useMantineTheme,
-  useInputProps,
-  BackgroundImage,
-} from "@mantine/core"
-import { IconPhoto } from "@tabler/icons"
-import { css } from "@emotion/react"
+import { ThemeIcon, Text, useMantineTheme } from "@mantine/core"
 import styled from "@emotion/styled"
 
 export interface MainMenuLinkProps {
   children: JSX.Element
   LinkCaption: String
 }
-
-// const LinkWrapper = styled.div({
-//   paddingTop: "8px",
-//   paddingBottom: "8px",
-//   marginTop: "8px",
-//   display: "flex",
-//   alignItems: "center",
-//   borderRadius: "4px",
-//   //background: "#1a1b1e",
-//   cursor: "pointer",
-//   ":hover": {
-//     transition: "background 0.5s",
-//     background: "gray",
-//   },
-// })
 interface LinkWrapperProps {
   backgroundColor: string
   hoverColor: string
@@ -68,8 +44,8 @@ export default function MainMenuLink(props: MainMenuLinkProps) {
       <Text
         style={{
           display: "inline",
-          paddingLeft: "6px",
-          //color: theme.colors.red[9],
+          paddingLeft: "12px",
+          fontSize: "18px",
           color: theme.white,
         }}
       >

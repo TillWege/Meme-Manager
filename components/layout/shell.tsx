@@ -34,17 +34,24 @@ export default function Shell(props: ShellProps) {
         },
       }}
       navbarOffsetBreakpoint="sm"
-      asideOffsetBreakpoint="sm"
       navbar={
         <Navbar
           p="md"
           hiddenBreakpoint="sm"
           hidden={!opened}
-          width={{ sm: 200, lg: 300 }}
+          width={{ sm: 200, lg: 275 }}
         >
           <Navbar.Section mt="xs">
             <div style={{ borderBottom: `1px solid ${theme.colors.gray[8]}` }}>
-              <p>header der navbar</p>
+              <h1
+                style={{
+                  textAlign: "center",
+                  marginBottom: "10px",
+                  marginTop: "-20px",
+                }}
+              >
+                Navigation
+              </h1>
             </div>
           </Navbar.Section>
 
@@ -65,17 +72,10 @@ export default function Shell(props: ShellProps) {
 
           <Navbar.Section>
             <div style={{ borderTop: `1px solid ${theme.colors.gray[8]}` }}>
-              <UserInfo></UserInfo>
+              <UserInfo />
             </div>
           </Navbar.Section>
         </Navbar>
-      }
-      aside={
-        <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
-          <Aside p="md" hiddenBreakpoint="sm" width={{ sm: 200, lg: 300 }}>
-            <Text>Application sidebar</Text>
-          </Aside>
-        </MediaQuery>
       }
       footer={
         <Footer height={60} p="md">
