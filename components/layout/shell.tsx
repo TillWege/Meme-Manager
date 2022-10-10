@@ -56,16 +56,16 @@ export default function Shell(props: ShellProps) {
           </Navbar.Section>
 
           <Navbar.Section grow mx="-xs" px="xs">
-            <MainMenuLink LinkCaption={"Home"}>
+            <MainMenuLink LinkCaption={"Home"} LinkRef={"/"}>
               <IconHome size={20} />
             </MainMenuLink>
-            <MainMenuLink LinkCaption={"Memes"}>
+            <MainMenuLink LinkCaption={"Memes"} LinkRef={"/memes/"}>
               <IconPhoto size={20} />
             </MainMenuLink>
-            <MainMenuLink LinkCaption={"Lists"}>
+            <MainMenuLink LinkCaption={"Lists"} LinkRef={"/"}>
               <IconList size={20} />
             </MainMenuLink>
-            <MainMenuLink LinkCaption={"Profile"}>
+            <MainMenuLink LinkCaption={"Profile"} LinkRef={"/"}>
               <IconUser size={20} />
             </MainMenuLink>
           </Navbar.Section>

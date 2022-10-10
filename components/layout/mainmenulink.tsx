@@ -1,10 +1,13 @@
 import { ThemeIcon, Text, useMantineTheme } from "@mantine/core"
 import styled from "@emotion/styled"
+import Link from "next/link"
 
 export interface MainMenuLinkProps {
   children: JSX.Element
   LinkCaption: String
+  LinkRef: string
 }
+
 interface LinkWrapperProps {
   backgroundColor: string
   hoverColor: string
@@ -27,30 +30,31 @@ const LinkWrapper = styled("div")((props: LinkWrapperProps) => ({
 
 export default function MainMenuLink(props: MainMenuLinkProps) {
   const theme = useMantineTheme()
-
   return (
-    <LinkWrapper
-      backgroundColor={theme.colors.dark[7]}
-      hoverColor={theme.colors.gray[7]}
-    >
-      <ThemeIcon
-        size="lg"
-        variant="gradient"
-        gradient={{ from: "indigo", to: "cyan" }}
-        style={{ marginLeft: "6px" }}
+    <Link href={props.LinkRef}>
+      <LinkWrapper
+        backgroundColor={theme.colors.dark[7]}
+        hoverColor={theme.colors.gray[7]}
       >
-        {props.children}
-      </ThemeIcon>
-      <Text
-        style={{
-          display: "inline",
-          paddingLeft: "12px",
-          fontSize: "18px",
-          color: theme.white,
-        }}
-      >
-        {props.LinkCaption}
-      </Text>
-    </LinkWrapper>
+        <ThemeIcon
+          size="lg"
+          variant="gradient"
+          gradient={{ from: "indigo", to: "cyan" }}
+          style={{ marginLeft: "6px" }}
+        >
+          {props.children}
+        </ThemeIcon>
+        <Text
+          style={{
+            display: "inline",
+            paddingLeft: "12px",
+            fontSize: "18px",
+            color: theme.white,
+          }}
+        >
+          {props.LinkCaption}
+        </Text>
+      </LinkWrapper>
+    </Link>
   )
 }
